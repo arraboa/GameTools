@@ -26,11 +26,11 @@ export const classes = [
   },
   {
     key: 3,
-    name: "Drukey",
+    name: "Druid",
     spe: ["feral", "balance", "restoration", "guardian"],
     rating: 9,
     comment:
-      "FACTION CHANGE sur Aedruis. Balance multkeyot, effets cool, pas trop complexe, bcp d'utilitaire, fort en mm+, restoration à tester",
+      "FACTION CHANGE sur Aedruis. Balance multi dot, effets cool, pas trop complexe, bcp d'utilitaire, fort en mm+, restoration à tester",
     eliminated: true
   },
   {
