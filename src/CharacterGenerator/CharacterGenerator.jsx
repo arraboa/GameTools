@@ -26,7 +26,7 @@ class CharacterGenerator extends React.Component {
   render() {
     return (
       <Container>
-        <Header as="h1">CharacterGenerator WIP</Header>
+        <Header as="h1">Character Generator</Header>
         <Button onClick={() => this.generateCharacter()}>
           Générer un personnage aléatoire
         </Button>

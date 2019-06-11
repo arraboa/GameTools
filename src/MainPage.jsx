@@ -8,18 +8,21 @@ import FireEmblem from "./FireEmblem/FireEmblem";
 
 const routes = [
   {
+    key: 0,
     path: "/characterGenerator",
     component: CharacterGenerator,
     icon: "add circle",
     title: "Character Generator"
   },
   {
+    key: 1,
     path: "/fireemblem",
     component: FireEmblem,
     icon: "fire",
     title: "Fire Emblem"
   },
   {
+    key: 2,
     path: "/wow",
     component: WowTable,
     icon: "gamepad",
@@ -33,12 +36,12 @@ class MainPage extends React.Component {
     this.state = { ok: "ok" };
   }
 
-  renderRoute = (path, component) => (
-    <Route path={path} component={component} />
+  renderRoute = (key, path, component) => (
+    <Route path={path} component={component} key={key} />
   );
 
-  renderMenuItem = (path, icon, title) => (
-    <NavLink exact to={path}>
+  renderMenuItem = (key, path, icon, title) => (
+    <NavLink exact to={path} key={key}>
       <Menu.Item active={path === this.props.location.pathname}>
         <Icon name={icon} />
         {title}
@@ -47,7 +50,6 @@ class MainPage extends React.Component {
   );
 
   render() {
-    console.log(this.props.location);
     return (
       <div>
         {this.props.location.pathname === "/" && (
@@ -55,7 +57,7 @@ class MainPage extends React.Component {
         )}
         <Menu icon="labeled" inverted fixed="top">
           {routes.map(route =>
-            this.renderMenuItem(route.path, route.icon, route.title)
+            this.renderMenuItem(route.key, route.path, route.icon, route.title)
           )}
         </Menu>
 
@@ -67,7 +69,9 @@ class MainPage extends React.Component {
           }}
         >
           <Switch>
-            {routes.map(route => this.renderRoute(route.path, route.component))}
+            {routes.map(route =>
+              this.renderRoute(route.key, route.path, route.component)
+            )}
           </Switch>
         </div>
       </div>
